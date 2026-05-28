@@ -1,0 +1,139 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/* —— Brand tokens —— */
+:root {
+    --rgi-teal: #004242;
+    --rgi-teal-dark: #003333;
+    --rgi-cream: #f2ede4;
+    --rgi-cream-muted: #e8e2d8;
+}
+
+/* —— Auth (login) split layout —— */
+.fi-rgi-auth {
+    @apply min-h-screen w-full lg:grid lg:grid-cols-2;
+}
+
+.fi-rgi-auth__brand {
+    @apply relative hidden flex-col justify-between overflow-hidden p-10 text-white lg:flex;
+    background: linear-gradient(145deg, var(--rgi-teal-dark) 0%, var(--rgi-teal) 45%, #005a5a 100%);
+}
+
+.fi-rgi-auth__brand::before {
+    content: '';
+    @apply pointer-events-none absolute inset-0 opacity-30;
+    background:
+        radial-gradient(circle at 20% 80%, rgba(242, 237, 228, 0.25) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(255, 255, 255, 0.12) 0%, transparent 40%);
+}
+
+.fi-rgi-auth__brand-inner {
+    @apply relative z-10 flex h-full flex-col;
+}
+
+.fi-rgi-auth__logo {
+    @apply h-12 w-auto brightness-0 invert;
+}
+
+.fi-rgi-auth__headline {
+    @apply mt-10 max-w-md text-3xl font-semibold leading-tight tracking-tight;
+    font-family: var(--font-family), ui-sans-serif, system-ui, sans-serif;
+}
+
+.fi-rgi-auth__tagline {
+    @apply mt-4 max-w-sm text-base leading-relaxed text-white/80;
+}
+
+.fi-rgi-auth__features {
+    @apply mt-auto space-y-4 pt-12;
+}
+
+.fi-rgi-auth__feature {
+    @apply flex items-start gap-3 text-sm text-white/90;
+}
+
+.fi-rgi-auth__feature-icon {
+    @apply mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white;
+}
+
+.fi-rgi-auth__panel {
+    @apply flex min-h-screen flex-col items-center justify-center bg-gray-50 px-4 py-10 dark:bg-gray-950;
+}
+
+.fi-rgi-auth-page .fi-simple-main-ctn {
+    @apply w-full max-w-md;
+}
+
+.fi-rgi-auth-page .fi-simple-main {
+    @apply w-full shadow-none ring-0;
+}
+
+.fi-rgi-auth-page .fi-simple-page-content {
+    @apply rounded-2xl border border-gray-200/80 bg-white p-8 shadow-xl shadow-gray-900/5 dark:border-white/10 dark:bg-gray-900 dark:shadow-none;
+}
+
+.fi-rgi-auth-page .fi-simple-page .fi-header-heading {
+    @apply text-2xl font-semibold tracking-tight text-gray-900 dark:text-white;
+}
+
+.fi-rgi-auth-mobile-brand {
+    @apply mb-8 flex flex-col items-center text-center lg:hidden;
+}
+
+.fi-rgi-auth-mobile-brand img {
+    @apply h-10 w-auto;
+}
+
+.fi-rgi-auth-mobile-brand span {
+    @apply mt-2 text-sm font-medium text-gray-600 dark:text-gray-400;
+}
+
+/* —— Dashboard welcome & quick actions —— */
+.fi-rgi-welcome {
+    @apply relative overflow-hidden rounded-2xl border border-primary-500/15 bg-gradient-to-br from-primary-600 to-primary-800 p-6 text-white shadow-lg sm:p-8;
+}
+
+.fi-rgi-welcome::after {
+    content: '';
+    @apply pointer-events-none absolute -right-16 -top-16 h-48 w-48 rounded-full bg-white/10;
+}
+
+.fi-rgi-welcome__eyebrow {
+    @apply text-xs font-semibold uppercase tracking-widest text-white/70;
+}
+
+.fi-rgi-welcome__title {
+    @apply mt-2 text-2xl font-semibold tracking-tight sm:text-3xl;
+}
+
+.fi-rgi-welcome__text {
+    @apply mt-2 max-w-2xl text-sm leading-relaxed text-white/85 sm:text-base;
+}
+
+.fi-rgi-quick-actions {
+    @apply mt-6 flex flex-wrap gap-3;
+}
+
+.fi-rgi-quick-action {
+    @apply inline-flex items-center gap-2 rounded-xl bg-white/15 px-4 py-2.5 text-sm font-medium text-white backdrop-blur-sm transition hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white;
+}
+
+.fi-rgi-quick-action--muted {
+    @apply bg-white/10 hover:bg-white/20;
+}
+
+/* —— Stats polish —— */
+.fi-wi-stats-overview-stat {
+    @apply rounded-xl ring-1 ring-gray-950/5 transition hover:ring-primary-500/20 dark:ring-white/10;
+}
+
+/* —— Sidebar accent —— */
+.fi-sidebar-nav-item.fi-active > .fi-sidebar-nav-item-btn {
+    @apply bg-primary-50 dark:bg-primary-500/10;
+}
+
+.fi-topbar {
+    @apply border-b border-gray-200/80 bg-white/80 backdrop-blur-md dark:border-white/10 dark:bg-gray-900/80;
+}

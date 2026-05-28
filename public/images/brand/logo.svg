@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Restore Global Initiative">
+  <rect width="120" height="120" rx="24" fill="#004242"/>
+  <circle cx="60" cy="52" r="22" fill="none" stroke="#F2EDE4" stroke-width="4"/>
+  <path d="M48 72c6 10 18 10 24 0" fill="none" stroke="#F2EDE4" stroke-width="4" stroke-linecap="round"/>
+  <path d="M36 48c8-14 40-14 48 0" fill="none" stroke="#F2EDE4" stroke-width="3" stroke-linecap="round" opacity="0.85"/>
+</svg>

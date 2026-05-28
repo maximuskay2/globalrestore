@@ -1,0 +1,37 @@
+{
+  "name": "Restore Global Initiative",
+  "colors": {
+    "teal": "#004242",
+    "tealDark": "#003333",
+    "cream": "#F2EDE4",
+    "creamMuted": "#E8E2D8"
+  },
+  "typography": {
+    "heading": "Plus Jakarta Sans",
+    "body": "DM Sans"
+  },
+  "logo": {
+    "source": "logo-source.jpeg",
+    "default": "logo.png",
+    "mark512": "logo-512.png",
+    "mark192": "logo-192.png",
+    "favicon32": "favicon-32.png",
+    "appleTouchIcon": "apple-touch-icon.png"
+  },
+  "contact": {
+    "email": "info@restoreglobalinitiative.com",
+    "mailto": "mailto:info@restoreglobalinitiative.com"
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/restore_global_initiative/",
+    "x": "https://x.com/RestoreGlobal_"
+  },
+  "legal": {
+    "legalName": "Restore Global Initiative",
+    "companyType": "Community Interest Company",
+    "jurisdiction": "United Kingdom",
+    "formationDocument": "Declarations on Formation of a Community Interest Company",
+    "registrationReference": "CIC 36",
+    "footerStatement": "Restore Global Initiative is a Registered UK Community Interest Company."
+  }
+}
