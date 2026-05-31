@@ -11,9 +11,15 @@ fi
 php artisan migrate --force
 php artisan storage:link --force 2>/dev/null || true
 
+bash scripts/sync-seed-media.sh
+
+echo "==> Syncing site content and media records..."
+php artisan db:seed --class=SiteContentSeeder --force
+php artisan db:seed --class=HomeVideoSlideSeeder --force
+php artisan db:seed --class=NewsPostSeeder --force
+
 if php artisan tinker --execute="echo \\App\\Models\\User::query()->count();" 2>/dev/null | tail -1 | grep -qx '0'; then
-  echo "==> Empty database detected — running initial seeders..."
-  php artisan db:seed --class=SiteContentSeeder --force
+  echo "==> Empty database detected — creating admin users..."
   php artisan db:seed --class=AdminUserSeeder --force
 fi
 

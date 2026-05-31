@@ -21,6 +21,12 @@ class SiteContentSeeder extends Seeder
                 'hero_subheadline' => 'A UK Community Interest Company advancing climate action, green skills, and community resilience.',
                 'hero_cta_text' => 'Get Involved',
                 'hero_cta_url' => null,
+                'hero_background_paths' => [
+                    'site/hero/01KSKZSEBX5BJAPKRZY47X0JDD.jpg',
+                    'site/hero/01KSM0K9CTSQNBDBX84868G3RD.jpg',
+                    'site/hero/01KSM187AAXFNAH1EK8YW1V6YE.jpg',
+                    'site/hero/01KSMQ3EBMY649E41ES61G7SPW.jpg',
+                ],
                 'video_slider_heading' => 'Video slider',
                 'video_slider_description' => 'Showcase clips with a video slider that plays videos from multiple sources in a smooth slideshow, improving design and keeping visitors engaged.',
                 'video_slider_cta_text' => 'Create Widget for Free',

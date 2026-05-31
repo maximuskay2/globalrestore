@@ -100,10 +100,12 @@ Or use the `Procfile` worker process if your plan supports multiple processes.
 
 ## 7. Media uploads (important)
 
-Railway filesystem is **ephemeral** — uploaded images are lost on redeploy unless you:
+**Bundled media:** Hero images, video thumbnails, and news featured images are shipped in `database/seed-media/` and copied to `storage/app/public` on every deploy. To update production media, add or replace files there locally, then push to GitHub.
+
+**New admin uploads** on Railway are stored on the container filesystem, which is **ephemeral** — they are lost on redeploy unless you:
 
 - Attach a **Railway Volume** mounted at `/app/storage/app/public`, or
-- Switch `FILESYSTEM_DISK` to S3 (recommended for production).
+- Switch `FILESYSTEM_DISK` to S3 (recommended for ongoing production uploads).
 
 ## 8. Health check
 

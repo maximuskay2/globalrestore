@@ -27,7 +27,7 @@ COPY . .
 
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist \
     && npm run build \
-    && chmod +x scripts/railway-start.sh
+    && chmod +x scripts/railway-start.sh scripts/sync-seed-media.sh
 
 ENV PORT=8080
 
