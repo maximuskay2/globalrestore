@@ -9,9 +9,15 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::table('site_settings', function (Blueprint $table) {
-            $table->json('hero_background_paths')->nullable()->after('hero_background_path');
-        });
+        if (! Schema::hasColumn('site_settings', 'hero_background_paths')) {
+            Schema::table('site_settings', function (Blueprint $table) {
+                $table->json('hero_background_paths')->nullable();
+            });
+        }
+
+        if (! Schema::hasColumn('site_settings', 'hero_background_path')) {
+            return;
+        }
 
         DB::table('site_settings')
             ->whereNotNull('hero_background_path')
@@ -29,8 +35,10 @@ return new class extends Migration
 
     public function down(): void
     {
-        Schema::table('site_settings', function (Blueprint $table) {
-            $table->dropColumn('hero_background_paths');
-        });
+        if (Schema::hasColumn('site_settings', 'hero_background_paths')) {
+            Schema::table('site_settings', function (Blueprint $table) {
+                $table->dropColumn('hero_background_paths');
+            });
+        }
     }
 };

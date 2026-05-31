@@ -9,10 +9,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('site_settings', function (Blueprint $table) {
-            $table->string('video_slider_heading')->nullable()->after('hero_background_paths');
-            $table->text('video_slider_description')->nullable()->after('video_slider_heading');
-            $table->string('video_slider_cta_text')->nullable()->after('video_slider_description');
-            $table->string('video_slider_cta_url')->nullable()->after('video_slider_cta_text');
+            $table->string('video_slider_heading')->nullable();
+            $table->text('video_slider_description')->nullable();
+            $table->string('video_slider_cta_text')->nullable();
+            $table->string('video_slider_cta_url')->nullable();
         });
     }
 
