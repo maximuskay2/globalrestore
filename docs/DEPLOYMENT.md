@@ -66,8 +66,13 @@ Change passwords immediately after first login. Seeded users are documented in `
 | SVG logo | — | `public/images/brand/logo.svg` |
 | Sitemap / robots | — | `/sitemap.xml`, `/robots.txt` |
 
+## Railway (production)
+
+See **`docs/RAILWAY.md`** for step-by-step deploy from GitHub, MySQL, env vars, queue worker, and custom domain.
+
 ## Further documentation
 
+- `docs/RAILWAY.md` — Railway production deploy
 - `docs/BROWSER_TESTING.md` — cross-browser checklist
 - `docs/STAGING_UAT.md` — staging deploy & UAT script
 - `docs/HOSTING_AND_MAIL.md` — domain, SSL, mail, analytics
