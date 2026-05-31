@@ -26,12 +26,17 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         if (! $this->app->runningUnitTests() && ($rootUrl = config('app.url'))) {
-            URL::forceRootUrl(rtrim($rootUrl, '/'));
+            $rootUrl = rtrim($rootUrl, '/');
+            URL::forceRootUrl($rootUrl);
 
-            // Livewire injects /livewire/livewire.js (site root). Prefix for subdirectory installs.
+            if (str_starts_with($rootUrl, 'https://') || $this->app->environment('production')) {
+                URL::forceScheme('https');
+            }
+
+            // Build explicitly from APP_URL — avoid http:// URLs behind Railway's HTTPS proxy.
             $livewireScript = config('app.debug') ? 'livewire.js' : 'livewire.min.js';
             config([
-                'livewire.asset_url' => url('/livewire/'.$livewireScript),
+                'livewire.asset_url' => $rootUrl.'/livewire/'.$livewireScript,
             ]);
         }
 
