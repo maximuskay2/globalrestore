@@ -10,5 +10,6 @@ if [ ! -d "$SEED_DIR" ]; then
 fi
 
 mkdir -p "$TARGET_DIR"
-cp -rf "$SEED_DIR/." "$TARGET_DIR/"
-echo "==> Synced bundled media to storage/app/public"
+# -n = never overwrite: admin uploads and replacements are kept across redeploys.
+cp -rn "$SEED_DIR/." "$TARGET_DIR/" 2>/dev/null || true
+echo "==> Ensured default media exists in storage/app/public (existing files kept)"

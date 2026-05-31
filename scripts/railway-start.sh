@@ -13,13 +13,12 @@ php artisan storage:link --force 2>/dev/null || true
 
 bash scripts/sync-seed-media.sh
 
-echo "==> Syncing site content and media records..."
-php artisan db:seed --class=SiteContentSeeder --force
-php artisan db:seed --class=HomeVideoSlideSeeder --force
-php artisan db:seed --class=NewsPostSeeder --force
-
+# Only seed default content on a fresh database — admin edits in /admin are kept after that.
 if php artisan tinker --execute="echo \\App\\Models\\User::query()->count();" 2>/dev/null | tail -1 | grep -qx '0'; then
-  echo "==> Empty database detected — creating admin users..."
+  echo "==> Fresh database — seeding default content and admin users..."
+  php artisan db:seed --class=SiteContentSeeder --force
+  php artisan db:seed --class=HomeVideoSlideSeeder --force
+  php artisan db:seed --class=NewsPostSeeder --force
   php artisan db:seed --class=AdminUserSeeder --force
 fi
 

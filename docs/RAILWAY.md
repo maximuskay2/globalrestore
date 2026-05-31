@@ -98,14 +98,44 @@ Or use the `Procfile` worker process if your plan supports multiple processes.
 2. Update `APP_URL` and `ASSET_URL` to `https://your-domain.com`.
 3. Redeploy.
 
-## 7. Media uploads (important)
+## 7. Media uploads & admin updates
 
-**Bundled media:** Hero images, video thumbnails, and news featured images are shipped in `database/seed-media/` and copied to `storage/app/public` on every deploy. To update production media, add or replace files there locally, then push to GitHub.
+### How it works in production
 
-**New admin uploads** on Railway are stored on the container filesystem, which is **ephemeral** — they are lost on redeploy unless you:
+| What you change in `/admin` | Stored in | Survives redeploy? |
+|-----------------------------|-----------|-------------------|
+| Page text, headlines, URLs | MySQL database | Yes |
+| Image / video file paths | MySQL database | Yes |
+| Uploaded files (hero, news, videos) | `storage/app/public` | **Only with a Volume** (see below) |
 
-- Attach a **Railway Volume** mounted at `/app/storage/app/public`, or
-- Switch `FILESYSTEM_DISK` to S3 (recommended for ongoing production uploads).
+After the first deploy, **admin edits are not overwritten** by code deploys. Seeders only run on a completely fresh database (no users yet).
+
+Default/baseline images ship in `database/seed-media/` and are copied into storage **only if missing** — they never replace files you uploaded in admin.
+
+### One-time setup: persistent uploads (required for admin media)
+
+Without this, uploads work until the next deploy, then images break.
+
+1. Railway project → **web** service → **Settings** → **Volumes**
+2. **Add Volume** → mount path: `/app/storage/app/public`
+3. Redeploy the web service
+
+After that, anything you upload in Filament (hero images, news photos, video thumbnails, etc.) is kept permanently.
+
+### Updating media as admin (day-to-day)
+
+1. Log in at `https://YOUR-DOMAIN/admin`
+2. Edit **Site Settings**, **Home Video Slides**, **News**, or **Media Assets**
+3. Upload or replace files in the form → **Save**
+4. Changes appear on the live site immediately — no git push needed
+
+### Updating baseline media via code (optional)
+
+To change the *default* shipped images (e.g. before first go-live):
+
+1. Add/replace files under `database/seed-media/` locally (same folder structure as storage paths)
+2. Update seeders if paths change
+3. Push to GitHub — deploy copies missing files only
 
 ## 8. Health check
 
