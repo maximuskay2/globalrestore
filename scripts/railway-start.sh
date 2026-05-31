@@ -10,6 +10,13 @@ fi
 
 php artisan migrate --force
 php artisan storage:link --force 2>/dev/null || true
+
+if php artisan tinker --execute="echo \\App\\Models\\User::query()->count();" 2>/dev/null | tail -1 | grep -qx '0'; then
+  echo "==> Empty database detected — running initial seeders..."
+  php artisan db:seed --class=SiteContentSeeder --force
+  php artisan db:seed --class=AdminUserSeeder --force
+fi
+
 php artisan config:cache
 php artisan route:cache
 php artisan view:cache
