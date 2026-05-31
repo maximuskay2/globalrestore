@@ -6,7 +6,7 @@ Repo: [github.com/maximuskay2/globalrestore](https://github.com/maximuskay2/glob
 
 1. Open [Railway](https://railway.com) and sign in.
 2. **New Project** → **Deploy from GitHub repo** → select `maximuskay2/globalrestore`.
-3. Railway will detect `nixpacks.toml` / `railway.toml` and build automatically.
+3. Railway builds from the included `Dockerfile` and starts via `scripts/railway-start.sh`.
 
 Or with CLI (logged in as `maximuskay2@gmail.com`):
 
@@ -114,7 +114,7 @@ Laravel exposes `/up` — configured in `railway.toml` for deploy health checks.
 | Issue | Fix |
 |-------|-----|
 | 500 on admin | Ensure `APP_KEY` is set; check deploy logs |
-| Filament number errors | `intl` is included via `nixpacks.toml` |
+| Filament number errors | `intl` is installed in the Dockerfile |
 | CSS/JS missing | Build runs `npm run build` on deploy |
 | DB connection failed | Verify `${{MySQL.*}}` variable references |
 | Contact email not sent | Run queue worker service; configure SMTP |
