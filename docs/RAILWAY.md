@@ -44,7 +44,7 @@ APP_NAME="Restore Global Initiative"
 APP_ENV=production
 APP_DEBUG=false
 APP_KEY=base64:YOUR_KEY_HERE
-APP_URL=https://YOUR-RAILWAY-DOMAIN.up.railway.app
+APP_URL=https://restoreglobalinitiative.com
 ASSET_URL=${{APP_URL}}
 
 LOG_CHANNEL=stderr
