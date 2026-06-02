@@ -29,7 +29,7 @@ class SiteContentSeeder extends Seeder
                 ],
                 'video_slider_heading' => 'Video slider',
                 'video_slider_description' => 'Showcase clips with a video slider that plays videos from multiple sources in a smooth slideshow, improving design and keeping visitors engaged.',
-                'video_slider_cta_text' => 'Create Widget for Free',
+                'video_slider_cta_text' => 'Contact US',
                 'video_slider_cta_url' => route('contact'),
                 'meta_description_default' => 'Restore Global Initiative empowers UK communities through green skills, clean energy, and climate action as a registered Community Interest Company.',
                 'contact_email' => config('brand.contact.email'),
