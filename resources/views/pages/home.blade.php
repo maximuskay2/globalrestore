@@ -99,10 +99,10 @@
                 <div class="max-w-lg">
                     <p class="text-sm font-semibold uppercase tracking-[0.2em] text-teal/60">Media showcase</p>
                     <h2 id="video-slider-heading" class="font-display mt-3 text-3xl font-bold text-teal md:text-4xl">
-                        {{ $settings->video_slider_heading ?: 'Take a View' }}
+                        {{ $settings->video_slider_heading ?: 'Our Work in Action' }}
                     </h2>
                     <p class="mt-4 text-lg leading-relaxed text-teal/75">
-                        {{ $settings->video_slider_description ?: 'Take a look at our latest videos and see how we are making a difference in the community.' }}
+                        {{ $settings->video_slider_description ?: 'Watch highlights from Restore Global Initiative programmes — green skills training, clean energy outreach, and community climate action making a difference across the UK.' }}
                     </p>
                     <div class="mt-8 flex flex-wrap items-center gap-4">
                         <a href="{{ $settings->videoSliderCtaUrl() }}" class="btn-primary">

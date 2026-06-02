@@ -62,8 +62,8 @@ class SiteSetting extends Model
             'impact_stat_2_label' => 'Women engaged in climate & energy programmes',
             'impact_stat_3_number' => '80+',
             'impact_stat_3_label' => 'Young adults on pathways to clean energy careers',
-            'video_slider_heading' => 'Video slider',
-            'video_slider_description' => 'Showcase clips with a video slider that plays videos from multiple sources in a smooth slideshow, improving design and keeping visitors engaged.',
+            'video_slider_heading' => 'Our Work in Action',
+            'video_slider_description' => 'Watch highlights from Restore Global Initiative programmes — green skills training, clean energy outreach, and community climate action making a difference across the UK.',
             'video_slider_cta_text' => 'Contact Us',
             'video_slider_cta_url' => null,
         ]);
