@@ -90,7 +90,8 @@ class SiteSettingForm
                         TextInput::make('video_slider_cta_url')
                             ->label('CTA button URL')
                             ->url()
-                            ->maxLength(500),
+                            ->maxLength(500)
+                            ->helperText('Leave empty to link to the contact page on the current domain.'),
                     ])
                     ->columns(2),
                 Section::make('SEO defaults')

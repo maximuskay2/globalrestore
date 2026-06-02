@@ -64,14 +64,35 @@ class SiteSetting extends Model
             'impact_stat_3_label' => 'Young adults on pathways to clean energy careers',
             'video_slider_heading' => 'Video slider',
             'video_slider_description' => 'Showcase clips with a video slider that plays videos from multiple sources in a smooth slideshow, improving design and keeping visitors engaged.',
-            'video_slider_cta_text' => 'Create Widget for Free',
-            'video_slider_cta_url' => route('contact'),
+            'video_slider_cta_text' => 'Contact Us',
+            'video_slider_cta_url' => null,
         ]);
     }
 
     public function heroCtaUrl(): string
     {
-        return $this->hero_cta_url ?: route('contact');
+        return $this->resolveInternalRouteUrl($this->hero_cta_url, 'contact');
+    }
+
+    public function videoSliderCtaUrl(): string
+    {
+        return $this->resolveInternalRouteUrl($this->video_slider_cta_url, 'contact');
+    }
+
+    protected function resolveInternalRouteUrl(?string $url, string $routeName): string
+    {
+        if (blank($url)) {
+            return route($routeName);
+        }
+
+        $path = parse_url($url, PHP_URL_PATH) ?? $url;
+        $internalPath = route($routeName, [], false);
+
+        if ($path === $internalPath || str_ends_with(rtrim($path, '/'), rtrim($internalPath, '/'))) {
+            return route($routeName);
+        }
+
+        return $url;
     }
 
     public function heroBackgroundUrl(): ?string

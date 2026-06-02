@@ -105,8 +105,8 @@
                         {{ $settings->video_slider_description ?: 'Take a look at our latest videos and see how we are making a difference in the community.' }}
                     </p>
                     <div class="mt-8 flex flex-wrap items-center gap-4">
-                        <a href="{{ $settings->video_slider_cta_url ?: route('contact') }}" class="btn-primary">
-                            {{ $settings->video_slider_cta_text ?: 'Get Involved' }}
+                        <a href="{{ $settings->videoSliderCtaUrl() }}" class="btn-primary">
+                            {{ $settings->video_slider_cta_text ?: 'Contact Us' }}
                         </a>
                     </div>
                 </div>
